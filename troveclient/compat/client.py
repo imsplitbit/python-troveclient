@@ -317,6 +317,7 @@ class Dbaas(object):
         from troveclient.v1 import security_groups
         from troveclient.v1 import storage
         from troveclient.v1 import users
+        from troveclient.v1 import metadata
 
         self.client = client_cls(username, api_key, tenant, auth_url,
                                  service_type=service_type,
@@ -348,6 +349,7 @@ class Dbaas(object):
         self.configurations = configurations.Configurations(self)
         config_parameters = configurations.ConfigurationParameters(self)
         self.configuration_parameters = config_parameters
+        self.metadata = metadata.Metadata(self)
 
         class Mgmt(object):
             def __init__(self, dbaas):
